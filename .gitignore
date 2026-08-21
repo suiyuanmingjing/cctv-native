@@ -1,0 +1,20 @@
+# Gradle / Android
+.gradle/
+build/
+app/build/
+local.properties
+.cxx/
+*.apk
+*.aab
+*.jks
+*.keystore
+!debug.keystore
+
+# IDE
+.idea/
+*.iml
+.vscode/
+.DS_Store
+
+# PRoot 运行时残留
+.proot.*
