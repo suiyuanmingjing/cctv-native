@@ -1,0 +1,337 @@
+{
+  "schemaVersion": 2,
+  "name": "CCTV channel list",
+  "description": "Shared channel list consumed by every branch. webKey is the real URL slug on tv.cctv.com; label/title drive the two-line card layout.",
+  "updatedAt": "2024-01-01",
+  "defaults": {
+    "webUrlTemplate": "https://tv.cctv.com/live/{webKey}/",
+    "rememberLastChannel": true,
+    "fullscreenOnStart": true
+  },
+  "channels": [
+    {
+      "id": "cctv1",
+      "number": 1,
+      "label": "CCTV-1",
+      "title": "综合",
+      "name": "CCTV-1 综合",
+      "aliases": [
+        "CCTV1"
+      ],
+      "webKey": "cctv1",
+      "webUrl": "https://tv.cctv.com/live/cctv1/",
+      "streamId": "cctv1",
+      "sourceHints": {
+        "preferredVideoCodec": "h264",
+        "fallbackCodec": "h265"
+      },
+      "enabled": true
+    },
+    {
+      "id": "cctv2",
+      "number": 2,
+      "label": "CCTV-2",
+      "title": "财经",
+      "name": "CCTV-2 财经",
+      "aliases": [
+        "CCTV2"
+      ],
+      "webKey": "cctv2",
+      "webUrl": "https://tv.cctv.com/live/cctv2/",
+      "streamId": "cctv2",
+      "sourceHints": {
+        "preferredVideoCodec": "h264",
+        "fallbackCodec": "h265"
+      },
+      "enabled": true
+    },
+    {
+      "id": "cctv3",
+      "number": 3,
+      "label": "CCTV-3",
+      "title": "综艺",
+      "name": "CCTV-3 综艺",
+      "aliases": [
+        "CCTV3"
+      ],
+      "webKey": "cctv3",
+      "webUrl": "https://tv.cctv.com/live/cctv3/",
+      "streamId": "cctv3",
+      "sourceHints": {
+        "preferredVideoCodec": "h264",
+        "fallbackCodec": "h265"
+      },
+      "enabled": true
+    },
+    {
+      "id": "cctv4",
+      "number": 4,
+      "label": "CCTV-4",
+      "title": "中文国际",
+      "name": "CCTV-4 中文国际",
+      "aliases": [
+        "CCTV4"
+      ],
+      "webKey": "cctv4",
+      "webUrl": "https://tv.cctv.com/live/cctv4/",
+      "streamId": "cctv4",
+      "sourceHints": {
+        "preferredVideoCodec": "h264",
+        "fallbackCodec": "h265"
+      },
+      "enabled": true
+    },
+    {
+      "id": "cctv5",
+      "number": 5,
+      "label": "CCTV-5",
+      "title": "体育",
+      "name": "CCTV-5 体育",
+      "aliases": [
+        "CCTV5"
+      ],
+      "webKey": "cctv5",
+      "webUrl": "https://tv.cctv.com/live/cctv5/",
+      "streamId": "cctv5",
+      "sourceHints": {
+        "preferredVideoCodec": "h264",
+        "fallbackCodec": "h265"
+      },
+      "enabled": true
+    },
+    {
+      "id": "cctv5plus",
+      "number": 6,
+      "label": "CCTV-5+",
+      "title": "体育赛事",
+      "name": "CCTV-5+ 体育赛事",
+      "aliases": [
+        "CCTV5+"
+      ],
+      "webKey": "cctv5plus",
+      "webUrl": "https://tv.cctv.com/live/cctv5plus/",
+      "streamId": "cctv5plus",
+      "sourceHints": {
+        "preferredVideoCodec": "h264",
+        "fallbackCodec": "h265"
+      },
+      "enabled": true
+    },
+    {
+      "id": "cctv6",
+      "number": 7,
+      "label": "CCTV-6",
+      "title": "电影",
+      "name": "CCTV-6 电影",
+      "aliases": [
+        "CCTV6"
+      ],
+      "webKey": "cctv6",
+      "webUrl": "https://tv.cctv.com/live/cctv6/",
+      "streamId": "cctv6",
+      "sourceHints": {
+        "preferredVideoCodec": "h264",
+        "fallbackCodec": "h265"
+      },
+      "enabled": true
+    },
+    {
+      "id": "cctv7",
+      "number": 8,
+      "label": "CCTV-7",
+      "title": "国防军事",
+      "name": "CCTV-7 国防军事",
+      "aliases": [
+        "CCTV7"
+      ],
+      "webKey": "cctv7",
+      "webUrl": "https://tv.cctv.com/live/cctv7/",
+      "streamId": "cctv7",
+      "sourceHints": {
+        "preferredVideoCodec": "h264",
+        "fallbackCodec": "h265"
+      },
+      "enabled": true
+    },
+    {
+      "id": "cctv8",
+      "number": 9,
+      "label": "CCTV-8",
+      "title": "电视剧",
+      "name": "CCTV-8 电视剧",
+      "aliases": [
+        "CCTV8"
+      ],
+      "webKey": "cctv8",
+      "webUrl": "https://tv.cctv.com/live/cctv8/",
+      "streamId": "cctv8",
+      "sourceHints": {
+        "preferredVideoCodec": "h264",
+        "fallbackCodec": "h265"
+      },
+      "enabled": true
+    },
+    {
+      "id": "cctv9",
+      "number": 10,
+      "label": "CCTV-9",
+      "title": "纪录",
+      "name": "CCTV-9 纪录",
+      "aliases": [
+        "CCTV9"
+      ],
+      "webKey": "cctvjilu",
+      "webUrl": "https://tv.cctv.com/live/cctvjilu/",
+      "streamId": "cctv9",
+      "sourceHints": {
+        "preferredVideoCodec": "h264",
+        "fallbackCodec": "h265"
+      },
+      "enabled": true
+    },
+    {
+      "id": "cctv10",
+      "number": 11,
+      "label": "CCTV-10",
+      "title": "科教",
+      "name": "CCTV-10 科教",
+      "aliases": [
+        "CCTV10"
+      ],
+      "webKey": "cctv10",
+      "webUrl": "https://tv.cctv.com/live/cctv10/",
+      "streamId": "cctv10",
+      "sourceHints": {
+        "preferredVideoCodec": "h264",
+        "fallbackCodec": "h265"
+      },
+      "enabled": true
+    },
+    {
+      "id": "cctv11",
+      "number": 12,
+      "label": "CCTV-11",
+      "title": "戏曲",
+      "name": "CCTV-11 戏曲",
+      "aliases": [
+        "CCTV11"
+      ],
+      "webKey": "cctv11",
+      "webUrl": "https://tv.cctv.com/live/cctv11/",
+      "streamId": "cctv11",
+      "sourceHints": {
+        "preferredVideoCodec": "h264",
+        "fallbackCodec": "h265"
+      },
+      "enabled": true
+    },
+    {
+      "id": "cctv12",
+      "number": 13,
+      "label": "CCTV-12",
+      "title": "社会与法",
+      "name": "CCTV-12 社会与法",
+      "aliases": [
+        "CCTV12"
+      ],
+      "webKey": "cctv12",
+      "webUrl": "https://tv.cctv.com/live/cctv12/",
+      "streamId": "cctv12",
+      "sourceHints": {
+        "preferredVideoCodec": "h264",
+        "fallbackCodec": "h265"
+      },
+      "enabled": true
+    },
+    {
+      "id": "cctv13",
+      "number": 14,
+      "label": "CCTV-13",
+      "title": "新闻",
+      "name": "CCTV-13 新闻",
+      "aliases": [
+        "CCTV13"
+      ],
+      "webKey": "cctv13",
+      "webUrl": "https://tv.cctv.com/live/cctv13/",
+      "streamId": "cctv13",
+      "sourceHints": {
+        "preferredVideoCodec": "h264",
+        "fallbackCodec": "h265"
+      },
+      "enabled": true
+    },
+    {
+      "id": "cctv14",
+      "number": 15,
+      "label": "CCTV-14",
+      "title": "少儿",
+      "name": "CCTV-14 少儿",
+      "aliases": [
+        "CCTV14"
+      ],
+      "webKey": "cctvchild",
+      "webUrl": "https://tv.cctv.com/live/cctvchild/",
+      "streamId": "cctv14",
+      "sourceHints": {
+        "preferredVideoCodec": "h264",
+        "fallbackCodec": "h265"
+      },
+      "enabled": true
+    },
+    {
+      "id": "cctv15",
+      "number": 16,
+      "label": "CCTV-15",
+      "title": "音乐",
+      "name": "CCTV-15 音乐",
+      "aliases": [
+        "CCTV15"
+      ],
+      "webKey": "cctv15",
+      "webUrl": "https://tv.cctv.com/live/cctv15/",
+      "streamId": "cctv15",
+      "sourceHints": {
+        "preferredVideoCodec": "h264",
+        "fallbackCodec": "h265"
+      },
+      "enabled": true
+    },
+    {
+      "id": "cctv16",
+      "number": 17,
+      "label": "CCTV-16",
+      "title": "奥林匹克",
+      "name": "CCTV-16 奥林匹克",
+      "aliases": [
+        "CCTV16"
+      ],
+      "webKey": "cctv16",
+      "webUrl": "https://tv.cctv.com/live/cctv16/",
+      "streamId": "cctv16",
+      "sourceHints": {
+        "preferredVideoCodec": "h264",
+        "fallbackCodec": "h265"
+      },
+      "enabled": true
+    },
+    {
+      "id": "cctv17",
+      "number": 18,
+      "label": "CCTV-17",
+      "title": "农业农村",
+      "name": "CCTV-17 农业农村",
+      "aliases": [
+        "CCTV17"
+      ],
+      "webKey": "cctv17",
+      "webUrl": "https://tv.cctv.com/live/cctv17/",
+      "streamId": "cctv17",
+      "sourceHints": {
+        "preferredVideoCodec": "h264",
+        "fallbackCodec": "h265"
+      },
+      "enabled": true
+    }
+  ]
+}
