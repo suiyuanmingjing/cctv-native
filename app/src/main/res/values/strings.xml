@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">CCTV 直播</string>
+    <string name="home_title">CCTV 直播</string>
+    <string name="nav_header_title">频道</string>
+    <string name="nav_header_subtitle">快速切换</string>
+    <string name="open_channels">打开频道列表</string>
+    <string name="overlay_loading">正在加载</string>
+</resources>
