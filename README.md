@@ -55,9 +55,9 @@
 # 1) 告诉项目 SDK 装在哪
 echo "sdk.dir=$ANDROID_HOME" > local.properties
 
-# 2) 编译
-./gradlew assembleDebug      # 自己装着玩的包
-./gradlew assembleRelease    # 发布包（默认不签名，需要自己签）
+# 2) 编译（两个版本二选一）
+./gradlew assembleWebviewRelease   # 不带内核，用系统自带内核
+./gradlew assembleGeckoRelease     # 带内核，内置 GeckoView
 ```
 
 ## 目录说明
