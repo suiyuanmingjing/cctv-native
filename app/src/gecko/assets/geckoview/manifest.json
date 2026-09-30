@@ -1,0 +1,22 @@
+{
+  "manifest_version": 2,
+  "name": "cctv-fullscreen",
+  "version": "1.0",
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "cctv-fullscreen@local"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*.cctv.com/*",
+        "*://*.cntv.cn/*",
+        "*://*.cctvpic.com/*"
+      ],
+      "js": ["auto_fullscreen.js"],
+      "run_at": "document_start",
+      "all_frames": true
+    }
+  ]
+}

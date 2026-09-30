@@ -11,8 +11,10 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
+        // GeckoView（内置内核）只发布在这里
+        maven { url 'https://maven.mozilla.org/maven2/' }
     }
 }
 
-rootProject.name = 'cctv-fullscreen-high'
+rootProject.name = 'cctv-native'
 include ':app'

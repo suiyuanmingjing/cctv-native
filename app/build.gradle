@@ -14,20 +14,33 @@ android {
         versionName "1.0"
     }
 
-    // 两个变体：guard = 带内核版本检测，plain = 不带
-    flavorDimensions "webviewCheck"
+    // 两个变体：gecko = 内置内核，webview = 用系统内核
+    flavorDimensions "engine"
     productFlavors {
-        guard {
-            dimension "webviewCheck"
-            applicationIdSuffix ".guard"
-            versionNameSuffix "-guard"
-            resValue "string", "app_name", "CCTV 直播 (内核检测)"
+        webview {
+            dimension "engine"
+            // 不带内核：用系统 WebView，并在启动时检查内核版本
+            resValue "string", "app_name", "CCTV 直播"
             buildConfigField "boolean", "WEBVIEW_CHECK", "true"
         }
-        plain {
-            dimension "webviewCheck"
-            resValue "string", "app_name", "CCTV 直播"
+        gecko {
+            dimension "engine"
+            applicationIdSuffix ".gecko"
+            versionNameSuffix "-gecko"
+            // 带内核：内置 GeckoView，不再依赖系统内核版本
+            resValue "string", "app_name", "CCTV 直播 (内置内核)"
             buildConfigField "boolean", "WEBVIEW_CHECK", "false"
+            ndk {
+                // 电视盒子足够，避免把 4 个 ABI 全打进包
+                abiFilters 'arm64-v8a', 'armeabi-v7a'
+            }
+        }
+    }
+
+    packaging {
+        jniLibs {
+            // GeckoView 的 .so 需要解压安装
+            useLegacyPackaging true
         }
     }
 
@@ -58,4 +71,6 @@ dependencies {
     // WebViewCompat.addDocumentStartJavaScript：向**所有框架**（含跨域 iframe）
     // 注入脚本，这是"官网播放器在 iframe 里导致不进全屏"的根治手段。
     implementation 'androidx.webkit:webkit:1.8.0'
+    // 仅 gecko 变体：内置浏览器内核
+    geckoImplementation 'org.mozilla.geckoview:geckoview:128.0.20240725162350'
 }
