@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">CCTV 直播</string>
     <string name="home_title">CCTV 直播</string>
     <string name="nav_header_title">频道</string>
     <string name="nav_header_subtitle">快速切换</string>
     <string name="open_channels">打开频道列表</string>
     <string name="overlay_loading">正在加载</string>
+    <string name="webview_old_title">浏览器内核版本偏低</string>
+    <string name="webview_old_message">当前系统浏览器内核版本是 %1$s，建议 %2$d 以上，可能无法正常全屏播放。\n\n可以到应用商店更新「Android System WebView」或「Chrome」。</string>
+    <string name="webview_update">去更新</string>
+    <string name="webview_continue">仍然尝试</string>
 </resources>

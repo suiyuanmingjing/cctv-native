@@ -14,6 +14,27 @@ android {
         versionName "1.0"
     }
 
+    // 两个变体：guard = 带内核版本检测，plain = 不带
+    flavorDimensions "webviewCheck"
+    productFlavors {
+        guard {
+            dimension "webviewCheck"
+            applicationIdSuffix ".guard"
+            versionNameSuffix "-guard"
+            resValue "string", "app_name", "CCTV 直播 (内核检测)"
+            buildConfigField "boolean", "WEBVIEW_CHECK", "true"
+        }
+        plain {
+            dimension "webviewCheck"
+            resValue "string", "app_name", "CCTV 直播"
+            buildConfigField "boolean", "WEBVIEW_CHECK", "false"
+        }
+    }
+
+    buildFeatures {
+        buildConfig true
+    }
+
     buildTypes {
         release {
             minifyEnabled false
