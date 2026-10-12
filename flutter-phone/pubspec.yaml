@@ -1,0 +1,27 @@
+name: cctv_flutter
+description: "CCTV 直播 Flutter 手机版：基于系统 Chrome 内核的央视直播播放器。"
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.13.5
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+  shared_preferences: ^2.5.6
+  webview_flutter: ^4.14.1
+  webview_flutter_android: ^4.14.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/channel-list.json
+    - assets/js/cctv_native.js
