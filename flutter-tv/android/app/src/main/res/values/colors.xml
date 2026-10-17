@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="brand_blue">#FF2563EB</color>
+    <color name="brand_blue_light">#FF60A5FA</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="nav_text">#FFE5E7EB</color>
+    <color name="text_dim">#FFA6ADBB</color>
+
+    <!-- 播放页（深色） -->
+    <color name="drawer_bg">#FF1F1F29</color>
+    <color name="drawer_header_bg">#FF2A2A38</color>
+    <color name="window_bg">#FF1C1C26</color>
+    <color name="overlay_bg">#FF000000</color>
+
+    <!-- 主页：9a8878 暖褐底 -->
+    <color name="home_bg_top">#FFA89683</color>
+    <color name="home_bg_mid">#FF9A8878</color>
+    <color name="home_bg_bottom">#FF8C7A6B</color>
+    <color name="home_title">#FF2E241C</color>
+    <color name="home_subtitle">#FF4A3B2F</color>
+
+    <!-- 频道卡片：白底深字 -->
+    <color name="card_bg">#FFFFFFFF</color>
+    <color name="card_text">#FF2B1B1B</color>
+    <color name="card_number">#FF8A6A6A</color>
+    <color name="card_stroke_idle">#22000000</color>
+
+    <!-- CCTV 红 -->
+    <color name="accent_red">#FFE53928</color>
+    <color name="accent_red_dark">#FFC62828</color>
+
+    <color name="ic_launcher_background">#FFFFFFFF</color>
+</resources>

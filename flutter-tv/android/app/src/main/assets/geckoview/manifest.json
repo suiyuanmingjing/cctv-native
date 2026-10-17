@@ -1,0 +1,28 @@
+﻿{
+  "manifest_version": 2,
+  "name": "cctv-tv",
+  "version": "1.0",
+  "description": "CCTV TV stage + native bridge",
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "cctv-tv@local"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*.cctv.com/*",
+        "*://*.cntv.cn/*",
+        "*://*.cctvpic.com/*"
+      ],
+      "js": ["cctv_tv.js"],
+      "run_at": "document_start",
+      "all_frames": true
+    }
+  ],
+  "permissions": [
+    "nativeMessaging",
+    "nativeMessagingFromContent",
+    "geckoViewAddons"
+  ]
+}
