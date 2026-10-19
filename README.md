@@ -1,4 +1,4 @@
-# CCTV 直播
+﻿# CCTV 直播
 
 一个可以在电视或手机上播放 CCTV 直播的小应用。
 
@@ -104,8 +104,41 @@ app/src/main/
 - 频道地址取自官网自己的导航。
 - 少数电视盒子对自动全屏支持不一样，个别设备上可能需要按一下确认键。
 
+
+## Flutter 重写版本
+
+仓库里新增了两个 Flutter 工程，和原来的原生 TV 工程并存：
+
+| 端 | 目录 | 说明 |
+| --- | --- | --- |
+| 手机 | [`flutter-phone/`](flutter-phone) | Flutter + 系统 Chrome/WebView；竖屏上方直播、下方频道；锁定竖屏；自动播放；点空白隐藏控件；全屏手动进入 |
+| 电视 | [`flutter-tv/`](flutter-tv) | Flutter TV UI + 内置 GeckoView 平台视图；无 WebView；遥控器 D-pad、频道网格、播放页上下换台 |
+
+构建：
+
+```bash
+cd flutter-phone
+flutter pub get
+flutter build apk --release --target-platform android-arm64
+
+cd ../flutter-tv
+flutter pub get
+flutter build apk --release --target-platform android-arm,android-arm64
+```
+
+两个工程都不提交 APK、签名文件、`build/`、`.dart_tool/`、`dist/`。签名统一使用
+`suiyuanmingjing`（密钥不放进仓库）。
+
+手机版关键行为：
+
+- 固定竖屏，不随手机旋转自动切换；全屏只由按钮手动触发，退出后回竖屏。
+- 打开频道自动播放，只有用户主动暂停才停。
+- 控件显示时点击画面空白处隐藏控件。
+- 视频放在独立固定舞台层，滑动只调音量/亮度，不拖动、不缩放画面。
+- 强制恢复视频音量，避免网页播放器把 `muted` 或 `volume` 置 0。
 ## 赞助
 
 这个应用完全免费，也没有广告。如果它对你有点用，欢迎请我喝杯茶：
 
 <img src="docs/afdian.jpg" alt="爱发电赞助码" width="320" />
+
