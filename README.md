@@ -1,144 +1,109 @@
 ﻿# CCTV 直播
 
-一个可以在电视或手机上播放 CCTV 直播的小应用。
+Flutter 手机版 + Flutter / GeckoView 电视版。应用直接打开央视网公开直播页播放，
+不解析、不代理、不保存任何视频内容。
 
-不用自己找直播源，也不改官网页面：应用直接用系统自带的浏览器内核打开 CCTV 官网的
-直播页，再自动切到全屏。所以看到的画面，和你在电脑浏览器里打开官网是一样的。
+## 直接下载
 
-## 功能
+所有安装包都在 GitHub Releases：
 
-- 主页就是频道列表，点一下就播；横屏竖屏都能用
-- 选好频道先显示一块黑色加载画面，直播出来后自动全屏
-- 播放时上下滑换台，从左往右滑打开频道列表
-- 遥控器能用：方向键选台、左键开列表、返回键退出
-- 记住上次看的频道
-- 电视上没有任何悬浮按钮，不会挡着画面
+**https://github.com/suiyuanmingjing/cctv-native/releases/latest**
 
-## 怎么用
+| 端 | 文件 | 适用设备 |
+| --- | --- | --- |
+| 手机（推荐） | `cctv-live-1.0.0-arm64-v8a.apk` | Android 9+，64 位手机 |
+| 手机（通用） | `cctv-live-1.0.0-universal.apk` | Android 9+，含 arm64 / armv7 |
+| 手机（32 位） | `cctv-live-1.0.0-armeabi-v7a.apk` | 老款 32 位手机 |
+| 电视（推荐） | `cctv-tv-1.0.0-flutter-gecko-universal.apk` | Android 7+，Flutter UI + 内置 GeckoView |
+| 电视（老系统兜底） | `cctv-tv-1.0-gecko-suiyuanmingjing.apk` | Android 5+，原生 GeckoView，无 WebView |
 
-| 操作 | 效果 |
-| --- | --- |
-| 主页点频道 | 开始播放 |
-| 播放时从左往右滑（或按左键、菜单键） | 打开频道列表 |
-| 点列表外的空白处 | 关掉列表 |
-| 返回键 | 回到主页 |
+APK 体积较大（尤其电视版 147 MB），所以放在 Releases，不放进 git 仓库。
 
-## 两个版本
+## 手机版怎么用
 
-同一个代码库出两个包，区别只在**浏览器内核**：
+1. 安装 `cctv-live-1.0.0-arm64-v8a.apk`（或通用包）。
+2. 打开后是 18 个频道，点频道卡片开始播放。
+3. 竖屏布局：上方是直播画面，下方是频道列表，点列表可直接换台。
+4. 播放控制：
+   - 播放 / 暂停：画面中央按钮或底部控制条。
+   - 音量 / 亮度：拖动滑杆，或在画面上左右两侧上下滑动。
+   - 换台：底部上一个 / 下一个，或直接点下方频道。
+   - 全屏：点全屏按钮；退出全屏或按返回会回到竖屏。
+   - 画面适应 / 铺满：全屏时切换，适应会留黑边，铺满会裁切边缘。
+   - 静音：点音量图标；自动播放不会保持静音。
+5. 默认锁定竖屏，手机旋转不会自动切换；全屏只由按钮手动进入。
+6. 打开频道会自动播放，只有你主动暂停才停。
+7. 控件显示时，点画面空白处隐藏控件；再点一下重新显示。
+8. 最低 Android 9（API 28）。
 
-| 版本 | 包名 | 内核 | 安装包大小 |
-| --- | --- | --- | --- |
-| 不带内核 | `com.cctv.fullscreen` | 系统自带（WebView） | 约 5.3 MB |
-| 带内核 | `com.cctv.fullscreen.gecko` | 内置 GeckoView | 约 145 MB |
-
-- **不带内核**：体积小。但依赖设备上的系统浏览器内核，太旧会影响播放，所以启动时会检查内核版本并提示更新。
-- **带内核**：把内核打进安装包，不受设备内核版本影响。代价是包大很多（GeckoView 内核本身约 261 MB，压完 145 MB）。
-  包里含 `arm64-v8a`（147 MB）和 `armeabi-v7a`（114 MB）两个架构，只留 arm64 可以把包压到约 75 MB。
-
-两个包名不同，可以同时装在一台设备上对比。
-
-## 环境要求
-
-| 项目 | 要求 |
-| --- | --- |
-| JDK | 17 或更高 |
-| Android SDK | compileSdk 34、build-tools 34.0.0 或更高 |
-| Gradle | 8.9（项目自带，不用另外装） |
-| 手机 / 电视系统 | Android 5.0 及以上 |
-
-## 编译
+安装命令：
 
 ```bash
-# 1) 告诉项目 SDK 装在哪
-echo "sdk.dir=$ANDROID_HOME" > local.properties
-
-# 2) 编译（两个版本二选一）
-./gradlew assembleWebviewRelease   # 不带内核，用系统自带内核
-./gradlew assembleGeckoRelease     # 带内核，内置 GeckoView
+adb install -r cctv-live-1.0.0-arm64-v8a.apk
 ```
 
-## 目录说明
+## 电视版怎么用
 
-```
-app/src/main/
-├── AndroidManifest.xml
-├── java/com/cctv/fullscreen/     # 程序代码
-│   ├── MainActivity.java         # 主页（频道列表）
-│   ├── PlayerActivity.java       # 播放页
-│   └── ...                       # 频道数据、记忆、界面工具
-├── assets/
-│   ├── auto_fullscreen.js        # 自动全屏用的脚本
-│   └── channel-list.json         # 频道列表
-└── res/                          # 界面布局、颜色、图标
-```
+1. 优先安装 `cctv-tv-1.0.0-flutter-gecko-universal.apk`（Android 7+）。
+2. 电视装不上或系统低于 Android 7，用 `cctv-tv-1.0-gecko-suiyuanmingjing.apk`（Android 5+）。
+3. 遥控器操作：
+   - 方向键：在频道网格中移动焦点。
+   - 确定键：播放选中的频道。
+   - 播放页上 / 下：切换上一个 / 下一个频道。
+   - 播放页左键：打开频道列表。
+   - 返回键：关闭列表 / 退出播放 / 回主页。
+4. 电视版内置 GeckoView，不依赖电视盒子的系统 WebView。
+5. 原 `cctv-native` 原生电视工程仍保留在 `app/`。
 
-## 频道列表
+电视 APK 可通过 U 盘拷贝到电视安装，或在同局域网用文件管理器安装。
 
-频道都放在 `app/src/main/assets/channel-list.json`，一共 18 个。想加台或者改台，
-直接改这个文件。每个频道长这样：
+## 从源码构建
 
-| 字段 | 作用 |
-| --- | --- |
-| `id` | 频道的内部编号，不要重复 |
-| `number` | 排序用，决定它排第几个 |
-| `label` | 卡片**上面**那行小字，比如 `CCTV-5+` |
-| `title` | 卡片**下面**那行大字，比如 `体育赛事` |
-| `webKey` | 官网地址里的名字 |
-| `webUrl` | 官网直播页地址 |
-
-### 改地址的时候注意
-
-`webKey` 用的是官网地址里的名字，**有两个频道跟 id 不一样**：
-
-| 频道 | 官网地址 |
-| --- | --- |
-| CCTV-9 纪录 | `https://tv.cctv.com/live/cctvjilu/` |
-| CCTV-14 少儿 | `https://tv.cctv.com/live/cctvchild/` |
-
-其他频道都和 id 一样。加新频道的时候，`webUrl` 请照 `webKey` 拼，别用 `id` 拼。
-
-## 说明
-
-- 本应用只打开 CCTV 官网的公开直播页面，**不解析、不代理、不保存**任何视频内容。
-- 频道地址取自官网自己的导航。
-- 少数电视盒子对自动全屏支持不一样，个别设备上可能需要按一下确认键。
-
-
-## Flutter 重写版本
-
-仓库里新增了两个 Flutter 工程，和原来的原生 TV 工程并存：
-
-| 端 | 目录 | 说明 |
-| --- | --- | --- |
-| 手机 | [`flutter-phone/`](flutter-phone) | Flutter + 系统 Chrome/WebView；竖屏上方直播、下方频道；锁定竖屏；自动播放；点空白隐藏控件；全屏手动进入 |
-| 电视 | [`flutter-tv/`](flutter-tv) | Flutter TV UI + 内置 GeckoView 平台视图；无 WebView；遥控器 D-pad、频道网格、播放页上下换台 |
-
-构建：
+手机版：
 
 ```bash
 cd flutter-phone
 flutter pub get
 flutter build apk --release --target-platform android-arm64
+```
 
-cd ../flutter-tv
+电视版：
+
+```bash
+cd flutter-tv
 flutter pub get
 flutter build apk --release --target-platform android-arm,android-arm64
 ```
 
-两个工程都不提交 APK、签名文件、`build/`、`.dart_tool/`、`dist/`。签名统一使用
-`suiyuanmingjing`（密钥不放进仓库）。
+原电视工程：
 
-手机版关键行为：
+```bash
+./gradlew assembleRelease
+```
 
-- 固定竖屏，不随手机旋转自动切换；全屏只由按钮手动触发，退出后回竖屏。
-- 打开频道自动播放，只有用户主动暂停才停。
-- 控件显示时点击画面空白处隐藏控件。
-- 视频放在独立固定舞台层，滑动只调音量/亮度，不拖动、不缩放画面。
-- 强制恢复视频音量，避免网页播放器把 `muted` 或 `volume` 置 0。
-## 赞助
+构建需要 Flutter 3.47+、Android SDK 36、JDK 21（原工程用 JDK 17）。
 
-这个应用完全免费，也没有广告。如果它对你有点用，欢迎请我喝杯茶：
+## 目录
 
-<img src="docs/afdian.jpg" alt="爱发电赞助码" width="320" />
+```text
+flutter-phone/   Flutter 手机版（系统 WebView）
+flutter-tv/      Flutter 电视版（内置 GeckoView）
+app/             原 cctv-native 原生电视工程
+docs/            原工程文档
+```
 
+## 签名
+
+所有 APK 使用同一签名：
+
+```text
+CN=suiyuanmingjing
+```
+
+签名密钥不放进仓库；升级安装时请保持同一签名。
+
+## 说明
+
+- 频道和直播地址来自央视网 `tv.cctv.com`。
+- 本应用只打开官网公开直播页，不解析、不代理、不保存视频内容。
+- 电视盒子型号较多，个别设备的遥控器按键映射可能不同。
