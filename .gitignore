@@ -19,3 +19,12 @@ local.properties
 
 # PRoot 运行时残留
 .proot.*
+
+# Flutter
+.dart_tool/
+build_corrupt/
+dist/
+**/.dart_tool/
+**/build/
+**/build_corrupt/
+**/dist/
