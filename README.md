@@ -92,14 +92,6 @@ app/             原 cctv-native 原生电视工程
 docs/            原工程文档
 ```
 
-## 签名
-
-所有 APK 使用同一签名：
-
-```text
-CN=suiyuanmingjing
-```
-
 签名密钥不放进仓库；升级安装时请保持同一签名。
 
 ## 说明
